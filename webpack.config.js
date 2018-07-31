@@ -24,9 +24,11 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
  *
  */
 module.exports = {
+	entry: {
+		main: path.resolve(__dirname, "lib/index"),
+	},
 	output: {
 		filename: '[name].js',
-		chunkFilename: '[name].js',
 		path: path.resolve(__dirname, 'dist')
 	},
 	resolve: {
@@ -36,16 +38,14 @@ module.exports = {
     ]
 	},
 	module: {
-		rules: [
-			{
+		rules: [{
 				test: /\.js$/,
 				exclude: /node_modules/,
 				loader: 'babel-loader',
 				options: {
 					presets: ['env']
 				}
-			},
-			{
+			}, {
 				test: /\.ts$/,
 				exclude: /node_nodules/,
 				loader: 'ts-loader'

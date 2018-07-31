@@ -5,4 +5,8 @@ const win = window as any;
 win.CrossStoreServer = CrossStoreServer;
 win.CrossStoreClient = CrossStoreClient;
 
-console.log('CrossStore bootstrap');
+export {
+  CrossStoreClient,
+  CrossStoreServer
+}
+
