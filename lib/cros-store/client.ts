@@ -4,14 +4,7 @@ import {
   Method
 } from './types';
 
-// 通过映射使得操作跨域locaslstorage和操作本地的localstorage一样
-export interface CrossStoreOptions {
-  iframeURL: string, // 用于做共享区域的iframe的url地址
-  expire: number // 过期时间
-}
-
 export class CrossStoreClient {
-  private _options: CrossStoreOptions;
   private _origin: string;
 
   // 服务端和客户端窗口
@@ -27,14 +20,7 @@ export class CrossStoreClient {
 
   constructor(
     serverUrl: string
-    // options: CrossStoreOptions
   ) {
-    // TODO 
-    // this._options = Object.assign({
-    //   iframeUrl: '',
-    //   expire: '30d'
-    // }, options);
-
     // supportCheck(); // 环境监测
     
     this._cbId = 0;

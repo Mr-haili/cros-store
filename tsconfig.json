@@ -1,13 +1,17 @@
 {
   "compilerOptions": {
     "module": "commonjs",
+    "experimentalDecorators": true,
     "strictNullChecks": true,
     "noImplicitAny": true,
     "sourceMap": true,
     "declaration": true,
     "target": "es5",
-    "lib": [ "dom", "es6" ],
+    "lib": [ "dom", "es6", "es2016" ],
     "baseUrl": "./lib"
+  },
+  "paths": {
+    "@lib/": ["lib"],
   },
   "include": [
     "lib/**/*"

@@ -24,33 +24,33 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
  *
  */
 module.exports = {
+	target: 'node',
 	entry: {
-		main: path.resolve(__dirname, "lib/index"),
+		main: path.resolve(__dirname, "lib/index")
 	},
 	output: {
 		filename: '[name].js',
 		path: path.resolve(__dirname, 'dist')
 	},
 	resolve: {
-		extensions: ['.js', '.ts'],
+		extensions: ['.js', '.ts', '.json'],
 		plugins: [
       new TsConfigPathsPlugin()
     ]
 	},
 	module: {
 		rules: [{
-				test: /\.js$/,
-				exclude: /node_modules/,
-				loader: 'babel-loader',
-				options: {
-					presets: ['env']
-				}
-			}, {
-				test: /\.ts$/,
-				exclude: /node_nodules/,
-				loader: 'ts-loader'
+			test: /\.js$/,
+			exclude: /node_modules/,
+			loader: 'babel-loader',
+			options: {
+				presets: ['env']
 			}
-		]
+		}, {
+			test: /\.ts$/,
+			exclude: /node_nodules/,
+			loader: 'ts-loader'
+		}]
 	}
 	// devServer: {
   //   contentBase: path.resolve(__dirname, 'dev'),

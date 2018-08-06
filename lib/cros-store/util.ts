@@ -7,3 +7,8 @@ export function addEvent(
 ): void {
   window.addEventListener(evtName, listener);
 }
+
+// 检查环境的支持程度
+function supportCheck() {
+
+}
