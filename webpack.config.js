@@ -30,7 +30,9 @@ module.exports = {
 	},
 	output: {
 		filename: '[name].js',
-		path: path.resolve(__dirname, 'dist')
+		path: path.resolve(__dirname, 'dist'),
+    libraryTarget: 'umd',
+    library: 'easy-store'
 	},
 	resolve: {
 		extensions: ['.js', '.ts', '.json'],
@@ -51,7 +53,7 @@ module.exports = {
 			exclude: /node_nodules/,
 			loader: 'ts-loader'
 		}]
-	}
+	},
 	// devServer: {
   //   contentBase: path.resolve(__dirname, 'dev'),
   //   publicPath: '/',
@@ -65,20 +67,20 @@ module.exports = {
   //     }
   //   }
   // }
-	// plugins: [new UglifyJSPlugin()],
-	// optimization: {
-	// 	splitChunks: {
-	// 		chunks: 'async',
-	// 		minSize: 30000,
-	// 		minChunks: 1,
-	// 		name: false,
+	plugins: [new UglifyJSPlugin()],
+	optimization: {
+		splitChunks: {
+			chunks: 'async',
+			minSize: 30000,
+			minChunks: 1,
+			name: false,
 
-	// 		cacheGroups: {
-	// 			vendors: {
-	// 				test: /[\\/]node_modules[\\/]/,
-	// 				priority: -10
-	// 			}
-	// 		}
-	// 	}
-	// }
+			cacheGroups: {
+				vendors: {
+					test: /[\\/]node_modules[\\/]/,
+					priority: -10
+				}
+			}
+		}
+	}
 };
