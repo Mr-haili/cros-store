@@ -32,7 +32,7 @@ module.exports = {
 		filename: '[name].js',
 		path: path.resolve(__dirname, 'dist'),
     libraryTarget: 'umd',
-    library: 'easy-store'
+    library: 'easy-local-store'
 	},
 	resolve: {
 		extensions: ['.js', '.ts', '.json'],

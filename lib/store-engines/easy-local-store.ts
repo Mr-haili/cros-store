@@ -20,7 +20,7 @@ interface StoreConfig {
 // 对底层的持久化存储做一些封装
 // 我们把所有的值都存成JSON string
 // TODO 我们需要一个插件机制来实现各种乱七八糟的功能
-export class Store {
+export class EasyLocalStore {
   private readonly _namespacePrefix: string;
   private readonly _isCros: boolean;
   private readonly _serverUrl: string | undefined;

@@ -2,19 +2,14 @@ import {
   CrossStorageClientDriver,
   CrossStorageServerDriver,
   LocalStorageDriver
-} from './store-drivers';
+} from 'store-drivers';
 import {
-  Store
-} from './store-engines';
-
-const win = window as any;
-win.CrossStorageClientDriver = CrossStorageClientDriver;
-win.CrossStorageServerDriver = CrossStorageServerDriver;
-win.Store = Store;
+  EasyLocalStore
+} from 'store-engines';
 
 export {
   CrossStorageClientDriver,
   CrossStorageServerDriver,
   LocalStorageDriver,
-  Store
+  EasyLocalStore
 }

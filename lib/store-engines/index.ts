@@ -1,3 +1,3 @@
 export {
-  Store
+  EasyLocalStore
 } from './store';
