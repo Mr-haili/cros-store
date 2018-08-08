@@ -1,5 +1,5 @@
 {
-  "name": "aaa-cross-storagre",
+  "name": "easy-store",
   "version": "0.1.0-alpha",
   "description": "",
   "main": "index.js",
@@ -20,9 +20,5 @@
     "uglifyjs-webpack-plugin": "^1.2.6",
     "webpack": "^4.16.3",
     "webpack-cli": "^3.1.0"
-  },
-  "dependencies": {
-    "leancloud-storage": "^3.10.0",
-    "leanengine": "^3.2.0"
   }
 }
