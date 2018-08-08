@@ -3,8 +3,17 @@ import {
   ResponseMsg,
   Method
 } from './types';
+import {
+  AsyncStorageDriver
+} from '../types';
 
-export class CrossStoreClient {
+/**
+ * 现在这个模块的功能其实有2个
+ * 1. 实现了一个及其受限的跨域通信职能
+ * 2. 提供了一个比较粗糙，简略本地存储功能
+ * 感觉这样也不是太好啊，或许我们能有更好的结构
+ */
+export class CrossStorageClientDriver implements AsyncStorageDriver{
   private _origin: string;
 
   // 服务端和客户端窗口
@@ -81,7 +90,7 @@ export class CrossStoreClient {
     })
   }
 
-  private _postMessage(
+  private async _postMessage(
     method: Method,
     args: string[]
   ): Promise<string | null> {
@@ -95,18 +104,24 @@ export class CrossStoreClient {
     this._serverWin.postMessage(JSON.stringify(message), '*');
     return new Promise((resolve, reject) => {
       this._cbRecord[cbId] = { resolve, reject };
-    });
+    }) as any;
   }
 
-  async set(key: string, val: any): Promise<string | null> {
-    return this._tryPostMessage(Method.SET, [key, val]);
+  get name(): string {
+    return 'cross store client!';
   }
 
-  async get(key: string): Promise<string | null> {
+  async setItem(key: string, val: any): Promise<void> {
+    const result = await this._tryPostMessage(Method.SET, [key, val]);
+    return Promise.resolve();
+  }
+
+  async getItem(key: string): Promise<string | null> {
     return this._tryPostMessage(Method.GET, [key]);
   }
 
-  async remove(key: string): Promise<null> {
-    return this._tryPostMessage(Method.REMOVE, [key]) as Promise<null>;
+  async removeItem(key: string): Promise<null> {
+    const result = await this._tryPostMessage(Method.REMOVE, [key]);
+    return Promise.resolve(null);
   }
 }

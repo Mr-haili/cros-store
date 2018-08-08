@@ -2,15 +2,14 @@ import {
   RequestMsg,
   ResponseMsg,
   Method
-} from 'types';
+} from './types';
 import {
   addEvent
-} from 'util';
+} from './util';
 
-export class CrossStoreServer {
+export class CrossStorageServerDriver {
   constructor(safeDomain?: string) {
     // supportCheck(); 依赖检测
-
     const me = this;
     addEvent('message', evt => me._onReceiveRequestMsg(evt as MessageEvent));
   }

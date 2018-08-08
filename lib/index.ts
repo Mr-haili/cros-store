@@ -1,17 +1,20 @@
 import {
-  CrossStoreServer,
-  CrossStoreClient
-} from './cros-store';
+  CrossStorageClientDriver,
+  CrossStorageServerDriver,
+  LocalStorageDriver
+} from './store-drivers';
 import {
   Store
-} from './store-engine';
+} from './store-engines';
 
 const win = window as any;
-win.CrossStoreServer = CrossStoreServer;
-win.CrossStoreClient = CrossStoreClient;
+win.CrossStorageClientDriver = CrossStorageClientDriver;
+win.CrossStorageServerDriver = CrossStorageServerDriver;
+win.Store = Store;
 
 export {
-  CrossStoreClient,
-  CrossStoreServer,
+  CrossStorageClientDriver,
+  CrossStorageServerDriver,
+  LocalStorageDriver,
   Store
 }

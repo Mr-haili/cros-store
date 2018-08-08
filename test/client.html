@@ -11,11 +11,21 @@
 </body>
 </html>
 <script>
-  const CrossStoreClient = window.CrossStoreClient;
+  // 如果启用跨域store就必须提供这个URL。。。很麻烦啊
   const serverUrl = 'http://127.0.0.1:4001/aaa-cross-storagre/test/server.html';
-  const client = new CrossStoreClient(serverUrl); // 不科学
-
-  client.get('userName').then(val => {
-    console.log('获取val', val);
+  const store = new Store({
+    namespace: 'deep_dark_fantasy',
+    isCros: true,
+    serverUrl
   });
+  store.read('userName').then(val => console.log(val));
+  store
+    .write('Now You Can See A Key', '你看见了一把钥匙')
+    .then(val => {
+      console.log(val);
+      return store.read('Now You Can See A Key', '你看见了一把钥匙')
+    })
+    .then(val => {
+      console.log(val);
+    });
 </script>

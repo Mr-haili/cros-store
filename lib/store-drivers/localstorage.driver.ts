@@ -1,6 +1,6 @@
-import { AsyncStorageDriver } from '../types';
+import { AsyncStorageDriver } from './types';
 
-// clear all!!!
+// clear all!!! 这个函数似乎并不适用在任何情况下呢。。
 // function clear() {
 // 	let i: number, key: string;
 // 	for (i = localStorage.length - 1; i >= 0; i--) {
