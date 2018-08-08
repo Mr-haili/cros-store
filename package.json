@@ -1,14 +1,15 @@
 {
   "name": "easy-local-store",
-  "version": "0.1.1-alpha",
+  "version": "0.1.4-alpha",
   "description": "",
-  "main": "index.js",
+  "main": "dist/main.js",
+  "types": "dist/lib/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "npm run build",
     "dev": "webpack -w --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.26.3",
