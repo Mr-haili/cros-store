@@ -1,3 +1,4 @@
+import 'promise-polyfill/src/polyfill';
 import {
   CrossStorageClientDriver,
   CrossStorageServerDriver,
@@ -13,3 +14,5 @@ export {
   LocalStorageDriver,
   EasyLocalStore
 }
+
+(window as any).CrossStorageServerDriver = CrossStorageServerDriver;

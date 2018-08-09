@@ -1,6 +1,6 @@
 {
   "name": "easy-local-store",
-  "version": "0.1.4-alpha",
+  "version": "0.1.5-alpha",
   "description": "",
   "main": "dist/main.js",
   "types": "dist/lib/index.d.ts",
@@ -21,5 +21,8 @@
     "uglifyjs-webpack-plugin": "^1.2.6",
     "webpack": "^4.16.3",
     "webpack-cli": "^3.1.0"
+  },
+  "dependencies": {
+    "promise-polyfill": "^8.0.0"
   }
 }
