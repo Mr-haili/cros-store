@@ -66,7 +66,13 @@ export class CrossStorageClientDriver implements AsyncStorageDriver{
   }
 
   private _onReceiveResponseMsg(evt: MessageEvent) {
-    const responseMsg: ResponseMsg = JSON.parse(evt.data);
+    let responseMsg: ResponseMsg;
+    try {
+      responseMsg = JSON.parse(evt.data);
+    } catch (error) {
+      return
+    }
+
     const { cbId, ret } = responseMsg;
     const { reject, resolve } = this._cbRecord[cbId];
 

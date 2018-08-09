@@ -15,9 +15,16 @@ export class CrossStorageServerDriver {
   }
 
   private _onReceiveRequestMsg(evt: MessageEvent): void {
-    const requestMsg: RequestMsg = JSON.parse(evt.data);
+    let requestMsg: RequestMsg;
+    try {
+      requestMsg = JSON.parse(evt.data);
+    } catch (error) {
+      return;
+    }
+
     // const originHostName = new url(evt.origin).hostname;
-    // const origin = evt.origin;
+    // const origin = evt.origin;S
+
     const { method, cbId, args } = requestMsg;
     const [key, val] = args;
     

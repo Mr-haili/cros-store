@@ -15,4 +15,6 @@ export {
   EasyLocalStore
 }
 
-(window as any).CrossStorageServerDriver = CrossStorageServerDriver;
+const win: any = window;
+win.CrossStorageServerDriver = CrossStorageServerDriver;
+// win.EasyLocalStore = EasyLocalStore;
