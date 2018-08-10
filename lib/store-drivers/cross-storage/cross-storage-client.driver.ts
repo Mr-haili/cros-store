@@ -62,7 +62,10 @@ export class CrossStorageClientDriver implements AsyncStorageDriver{
       client._isConnected = true;
       client._iframeBeforeFuns.forEach(func => func());
     }
-    document.body.appendChild(iframe);
+    // 一个setTimeout解千愁
+    setTimeout(() => {
+      document.body.appendChild(iframe);
+    }, 0);
   }
 
   private _onReceiveResponseMsg(evt: MessageEvent) {

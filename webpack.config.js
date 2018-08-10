@@ -68,7 +68,7 @@ module.exports = {
   // }
 	// plugins: [new UglifyJSPlugin()],
 	optimization: {
-		minimize: false,
+		// minimize: false,
 		splitChunks: {
 			chunks: 'async',
 			minSize: 30000,
