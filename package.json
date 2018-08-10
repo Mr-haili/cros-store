@@ -1,6 +1,6 @@
 {
   "name": "easy-local-store",
-  "version": "0.1.6-alpha",
+  "version": "0.1.7-alpha",
   "description": "",
   "main": "dist/main.js",
   "types": "dist/lib/index.d.ts",
