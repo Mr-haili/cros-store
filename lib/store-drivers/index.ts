@@ -4,7 +4,8 @@ export {
 export {
   CrossStorageClientDriver,
   CrossStorageServerDriver
-} from './cross-storage';
+} from './cross-storage-driver';
 export {
   AsyncStorageDriver
 } from './types';
+

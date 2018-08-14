@@ -6,14 +6,14 @@ export enum Method {
 }
 
 export interface RequestMsg {
-  cbId: number,
+  cbId: string,
   origin: string,
   method: Method,
   args: any
 }
 
 export interface ResponseMsg {
-  cbId: number,
+  cbId: string,
   ret: string | undefined | null,
   err?: string
 }

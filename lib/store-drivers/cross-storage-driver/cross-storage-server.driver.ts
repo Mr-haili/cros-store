@@ -5,11 +5,10 @@ import {
 } from './types';
 import {
   addEvent
-} from './util';
+} from './utils';
 
 export class CrossStorageServerDriver {
   constructor(safeDomain?: string) {
-    // supportCheck(); 依赖检测
     const me = this;
     addEvent('message', evt => me._onReceiveRequestMsg(evt as MessageEvent));
   }
@@ -22,8 +21,9 @@ export class CrossStorageServerDriver {
       return;
     }
 
+    // TODO 域名有效性验证
     // const originHostName = new url(evt.origin).hostname;
-    // const origin = evt.origin;S
+    // const origin = evt.origin;
 
     const { method, cbId, args } = requestMsg;
     const [key, val] = args;
