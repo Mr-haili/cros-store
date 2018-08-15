@@ -1,17 +1,22 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "es6",
+    "target": "es6",
+    "moduleResolution": "node",
     "experimentalDecorators": true,
     "strictNullChecks": true,
     "noImplicitAny": true,
     "sourceMap": true,
     "declaration": true,
-    "target": "es5",
-    "lib": [ "dom", "es6", "es2016" ],
+    "lib": [
+      "dom",
+      "es6",
+      "es2015"
+    ],
     "baseUrl": "./lib"
   },
   "include": [
-    "lib/**/*"
+    "./lib/**/*"
   ],
   "exclude": [
     "node_modules",

@@ -4,24 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Cross Store Client</title>
-<script charset="utf-8" type="text/javascript" src="../dist/main.js"></script>
 </head>
 <body>
   Cross Store Client
 </body>
+<script charset="utf-8" type="text/javascript" src="../dist/test/client.js"></script>
 </html>
-<script>
-  // 如果启用跨域store就必须提供这个URL。。。很麻烦啊
-  var serverUrl = 'http://172.27.49.204:4001//aaa-cross-storagre/test/cross-store-server.html';
-  var store = new EasyLocalStore({namespace: 'deep_dark_fantasy', isCros: true, serverUrl: serverUrl});
-
-  // store.read('userName').then(val => console.log(val));
-  store
-    .write('Now You Can See A Key', '你看见了一把钥匙')
-    .then(function(val) {
-      return store.read('Now You Can See A Key')
-    })
-    .then(function(val) {
-      console.log(val);
-    });
-</script>

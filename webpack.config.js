@@ -23,9 +23,12 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
  * https://webpack.js.org/plugins/split-chunks-plugin/
  *
  */
+// TODO 我们需要编译出一个?
 module.exports = {
 	entry: {
-		main: path.resolve(__dirname, "lib/index")
+		'main': path.resolve(__dirname, "lib/main"),
+		'test/client': path.resolve(__dirname, "test/src/test-client"),
+		'test/server': path.resolve(__dirname, "test/src/test-server")
 	},
 	output: {
 		filename: '[name].js',
@@ -48,9 +51,18 @@ module.exports = {
 				presets: ['env']
 			}
 		}, {
-			test: /\.ts$/,
-			exclude: /node_nodules/,
-			loader: 'ts-loader'
+			test: /\.tsx?$/,
+			use: [
+				// { // 暂时注释掉就可以鸟
+				// loader:'babel-loader',
+				// options: {
+				// 	presets: ['env']
+				// }
+			// },
+			{
+				loader: 'ts-loader'
+			}],
+			exclude: /node_modules/
 		}]
 	},
 	// devServer: {
@@ -66,21 +78,8 @@ module.exports = {
   //     }
   //   }
   // }
-	// plugins: [new UglifyJSPlugin()],
+	plugins: [new UglifyJSPlugin()],
 	optimization: {
-		// minimize: false,
-		splitChunks: {
-			chunks: 'async',
-			minSize: 30000,
-			minChunks: 1,
-			name: false,
-
-			cacheGroups: {
-				vendors: {
-					test: /[\\/]node_modules[\\/]/,
-					priority: -10
-				}
-			}
-		}
+		minimize: true
 	}
 };

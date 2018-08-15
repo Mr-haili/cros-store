@@ -117,6 +117,7 @@ export class CrossStorageClientDriver implements AsyncStorageDriver{
       method,
       args: args
     }
+
     this._serverWin.postMessage(JSON.stringify(message), '*');
     return new Promise((resolve, reject) => {
       this._cbRecord[cbId] = { resolve, reject };

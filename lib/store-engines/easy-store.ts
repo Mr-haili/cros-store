@@ -38,7 +38,7 @@ export class EasyStore {
 
   async read(
     key: string,
-    optionalDefaultValue: any
+    optionalDefaultValue?: any
   ): Promise<any> {
     key = this._addNamespacePrefix(key);
     const serializedVal = await this._storageDriver.getItem(key);
